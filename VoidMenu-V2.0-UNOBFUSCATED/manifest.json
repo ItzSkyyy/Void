@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "VoidMenu",
+  "version": "2.0",
+  "description": "VoidMenu, The best education hacks.",
+  "icons": {
+    "128": "image/128.png"
+  },
+  "host_permissions": [
+    "https://*.i-ready.com/"
+  ],
+  "permissions": [
+    "declarativeNetRequest"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "block_i_ready",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.i-ready.com/student/dashboard/home"
+      ],
+      "js": [
+        "main.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "forward.js"
+  }
+}
