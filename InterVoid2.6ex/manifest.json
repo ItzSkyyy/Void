@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+
+    "name": "InterVoid",
+
+    "version": "2.6",
+    
+    "description": "Intervoid, The best i-Ready hack.",
+
+    "icons": {
+        "128": "image/128.png"
+    },
+
+    "permissions": [
+      "webRequest",
+      "webRequestBlocking",
+      "*://*.i-ready.com/*"
+    ],
+    
+    "content_scripts": [
+        {
+            "matches": ["*://*.i-ready.com/student/dashboard/home"],
+            "js": ["main.js"]
+        }
+    ],
+
+    "background": {
+        "scripts": ["forward.js"],
+        "persistent": true
+    }
+
+}
